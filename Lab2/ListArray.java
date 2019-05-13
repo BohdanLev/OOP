@@ -234,45 +234,10 @@ public boolean compareTo()
 		oos.writeObject(this);
 		oos.close();
 	}
-	
-	public Iterator<String> iterator()
-	{
-		return new Iterator<String>()
-		{
 
-			private int ptr = 0;
-
-			public boolean hasNext()
-			{
-				return ptr  < pointer && array[ptr] != null;
-			}
-
-			public String next()
-			{
-				return array[ptr++];
-			}
-
-			public void remove()
-			{
-				for(int i = 0;i < pointer;i++)
-				{
-					if(array[i] == array[ptr])
-					{
-						
-						for(int j = i;j < pointer;j++)
-						{
-							array[j] = array[j+1];
-						}
-						pointer--;
-						if(pointer == SIZE/2)
-						{
-							SIZE /= 2;
-							resize();
-						}
-					}
-				}
-			}
-		};
-
-	};
+	@Override
+	public Iterator<String> iterator() 
+	{		
+		return new MyIterator(this,pointer);
+	}
 }

@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
-public class Lab2{
+public class Main{
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
@@ -54,14 +54,8 @@ public class Lab2{
 				}
 				case"Sort":
 				{
-					Collections.sort(test,new Comparator<Event>()
-							{
-								public int compare(Event first, Event second)
-								{
-									return first.members.size() > second.members.size() ? -1 :(first.members.size() < second.members.size()) ? 1 : 0 ;
-								}
-							});
-							break;
+					Collections.sort(test);
+					break;
 				}
 				case"Remove":
 				{

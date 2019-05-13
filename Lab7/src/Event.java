@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
-public class Event 
+public class Event implements Comparable<Event>
 {
 	public Date date;
 	public Time timeStart;
@@ -58,5 +59,11 @@ public class Event
 		{
 			mem.print();
 		}
-	}	
+	}
+
+	@Override
+	 public int compareTo(Event o) 
+	{
+	  return this.members.size() > o.members.size() ? -1 :(this.members.size() < o.members.size()) ? 1 : 0 ;
+	 }
 }
